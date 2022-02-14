@@ -22,7 +22,7 @@ Double click on the `index.html` file.
 
 * [Javascript](https://www.javascript.com/)
 * [Bootstrap](https://getbootstrap.com/)
-* [function](https://www.w3schools.com/)
+* [w3schools](https://www.w3schools.com/)
 
 ## Authors
 
