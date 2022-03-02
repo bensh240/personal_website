@@ -36,7 +36,7 @@ This project has many different technologies and methods implemented into it.
 ## Authors
 
 * **Ben Shaya - Head Developer**
-* **Tom Brovender - Devops**
+* **Tom Brovender - Docker & Service Implementation**
 
 
-# **Enjoy Ben's Pics ;), we all know he loves them :P**
+# **Enjoy Ben's Pics ;),  we all know he loves them :P**
