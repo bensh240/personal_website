@@ -1,15 +1,11 @@
-FROM nginx:stable-alpine
-
-WORKDIR /usr/share/nginx/html/css
-COPY ./css/*.css .
+FROM nginx:1.13-alpine
 
 WORKDIR /usr/share/nginx/html/img
-COPY ./img/* .
-
+COPY ./img/* ./
 
 WORKDIR /usr/share/nginx/html/js
-COPY ./js/*.js .
-COPY *.js .
+COPY ./js/*.js ./
 
-WORKDIR /usr/share/nginx/html/
-COPY ./index.html .
+WORKDIR /usr/share/nginx/html
+COPY my_site_js.js .
+

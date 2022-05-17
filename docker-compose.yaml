@@ -2,23 +2,20 @@ version: "3"
 
 services:
     nginx:
-      image: nginx:alpine-stable
-      container_name: frontend
+      image: nginx:1.13-alpine
+      container_name: frontend-ben
       ports:
-        - "80:80"
-        - "443:443"
+        - "8082:80"
+        - "4433:443"
       volumes:
         - "./nginx.conf:/etc/nginx/nginx.conf"
         - "./data/certbot/conf:/etc/letsencrypt:rw"
         - "./data/certbot/www:/var/www/certbot:rw"
+        - "./js:/usr/share/nginx/html"
+        - "./css:/usr/share/nginx/html/css"
+        - "./index.html:/usr/share/nginx/html/index.html"
+        - "./my_site_js.js:/usr/share/nginx/html/my_site_js.js"
     backend:
       build: .
       container_name: ben_website
       restart: always
-    certbot:
-      image: certbot/certbot:amd64-nightly
-      container_name: certbot
-      restart: always
-      volumes:
-        - "./data/certbot/conf:/etc/letsencrypt:rw"
-        - "./data/certbot/www:/var/www/certbot:rw"
