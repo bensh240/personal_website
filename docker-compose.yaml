@@ -1,7 +1,24 @@
 version: "3"
 
 services:
-    client:
-        build: .
-        ports:
-            - 8081:80
+    nginx:
+      image: nginx:alpine-stable
+      container_name: frontend
+      ports:
+        - "80:80"
+        - "443:443"
+      volumes:
+        - "./nginx.conf:/etc/nginx/nginx.conf"
+        - "./data/certbot/conf:/etc/letsencrypt:rw"
+        - "./data/certbot/www:/var/www/certbot:rw"
+    backend:
+      build: .
+      container_name: ben_website
+      restart: always
+    certbot:
+      image: certbot/certbot:amd64-nightly
+      container_name: certbot
+      restart: always
+      volumes:
+        - "./data/certbot/conf:/etc/letsencrypt:rw"
+        - "./data/certbot/www:/var/www/certbot:rw"
